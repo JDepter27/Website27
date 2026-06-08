@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Departamentul de Psihologie</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+  <script defer src="/assets/app.js"></script>
+</head>
+<body>
+  <div class="page page-home active" id="pageHome">
+    <div class="hero-panel">
+      <div class="hero-content">
+        <div class="hero-left">
+          <img src="/static/psihologie.png" alt="Logo Psihologie" class="logo" />
+          <div class="hero-brand">
+            <span>Departamentul de</span>
+            <strong>Psihologie</strong>
+          </div>
+        </div>
+        <div class="hero-center">
+          <h1>Departamentul de Psihologie</h1>
+          <p>Accesează testul de admitere intern, cu regulile stricte ale departamentului.</p>
+          <div class="hero-actions">
+            <button id="startTestBtn" class="primary">Test Intrare Departament</button>
+            <button class="secondary" disabled>COMING SOON</button>
+          </div>
+        </div>
+      </div>
+      <aside class="hero-sidebar">
+        <div class="sidebar-header">
+          <span>Birou Informativ</span>
+        </div>
+        <div class="sidebar-grid">
+          <a class="sidebar-card" href="https://smurd.rnbhost.cloud/departments/rules/12" target="_blank" rel="noreferrer noopener">
+            <div class="icon">📄</div>
+            <div>
+              <strong>Regulament Intern</strong>
+              <span>Întrebările vin din acest regulament.</span>
+            </div>
+          </a>
+          <a class="sidebar-card" href="https://smurd.rnbhost.cloud/departments/rules/21" target="_blank" rel="noreferrer noopener">
+            <div class="icon">📘</div>
+            <div>
+              <strong>Codul de conduită</strong>
+              <span>Respectul și comportamentul obligatoriu.</span>
+            </div>
+          </a>
+          <a class="sidebar-card" href="https://smurd.rnbhost.cloud/departments/rules/37" target="_blank" rel="noreferrer noopener">
+            <div class="icon">🧠</div>
+            <div>
+              <strong>Situații suicidare</strong>
+              <span>Proceduri sensibile și serioase.</span>
+            </div>
+          </a>
+        </div>
+      </aside>
+    </div>
+    <div class="decor-lines"></div>
+  </div>
+
+  <div class="page page-rules" id="pageRules">
+    <div class="card">
+      <h2>Regulile testului</h2>
+      <ul>
+        <li>Testul este monitorizat strict și începe de pe acest browser.</li>
+        <li>Schimbarea taburilor, a ferestrei sau deschiderea DevTools poate duce la <strong>FW + blacklist</strong>.</li>
+        <li>Ai <strong>45 de secunde</strong> pe întrebare.</li>
+        <li>Răspunsurile sunt fixe și verificate de conducere.</li>
+        <li>Nu poți reveni la întrebările anterioare.</li>
+      </ul>
+      <div class="card-actions">
+        <button id="confirmStartBtn" class="primary">Începe testul</button>
+        <button id="cancelTestBtn" class="secondary">Renunță</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="page page-pre-test" id="pagePreTest">
+    <div class="card">
+      <h2>Date de identificare</h2>
+      <p>Completează datele înainte de a începe testul.</p>
+      <div class="form-group">
+        <label for="preTestName">Nume și Prenume</label>
+        <input type="text" id="preTestName" class="form-input" placeholder="Ion Popescu" />
+      </div>
+      <div class="form-group">
+        <label for="preTestCNP">CNP</label>
+        <input type="text" id="preTestCNP" class="form-input" placeholder="1234567890123" />
+      </div>
+      <div class="card-actions">
+        <button id="preTestNextBtn" class="primary">Continuă</button>
+        <button id="preTestCancelBtn" class="secondary">Renunță</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="page page-test" id="pageTest">
+    <div class="progress-wrap">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="topbar">
+      <div class="info"><span id="questionCounter">Pas 1 / 17</span></div>
+      <div class="timer" id="timer">45s</div>
+    </div>
+    <div class="card question-card">
+      <h2 id="questionTitle">Întrebarea va apărea aici</h2>
+      <div class="answers" id="answers"></div>
+    </div>
+    <div class="footer">
+      <button id="nextBtn" class="primary" disabled>Next</button>
+    </div>
+  </div>
+
+  <div class="page page-result" id="pageResult">
+    <div class="card result-card">
+      <div class="result-image" id="resultImage"></div>
+      <h2 id="resultTitle">Rezultatul testului</h2>
+      <p id="resultMessage"></p>
+      <div class="score-panel">
+        <span>Punctaj:</span>
+        <strong id="resultScore">0%</strong>
+      </div>
+      <div class="result-actions">
+        <button id="retryBtn" class="primary">Acasă</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="alertOverlay">
+    <div class="overlay-card">
+      <h3>Atenție</h3>
+      <p id="alertText">Schimbările de tab sau DevTools pot afecta testul.</p>
+      <button id="closeAlertBtn" class="primary">Înțeleg</button>
+    </div>
+  </div>
+</body>
+</html>
